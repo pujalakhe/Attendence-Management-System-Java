@@ -16,9 +16,6 @@ public class Admin extends JFrame{
 	Font text = new Font("Times New Roman",Font.PLAIN,18);
 			
 	Admin(){
-		 
-		 
-		 
 			//-----------------------BACK---------------------------------
 			JLabel back = new JLabel("BACK");
 			back.setForeground(Color.decode("#ffffff"));
@@ -116,6 +113,9 @@ public class Admin extends JFrame{
 			getContentPane().setBackground(Color.decode("#37474F"));
 			setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			//--------------------------
+			
+			//---Students--//
+			
 	
 	
 	}

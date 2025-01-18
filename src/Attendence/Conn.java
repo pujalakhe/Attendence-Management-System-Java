@@ -10,7 +10,7 @@ Connection con;
 Statement s;
 Conn(){
 	try {
-		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/attendence","root","root");
+		con = DriverManager.getConnection("jdbc:mysql://localhost:3306/attendance","root","talaiknachayo");
 		s=con.createStatement();
 	} catch (SQLException e) {
 		// TODO Auto-generated catch block

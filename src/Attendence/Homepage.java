@@ -3,16 +3,18 @@ package Attendence;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-public class Homepage extends JFrame{
+public class Homepage extends JFrame implements ActionListener{
 	Font fontstyle = new Font("Times New Roman",Font.BOLD,20);
 			
 	JLabel welcome;
-	JButton students, addAttendance, editAttendance, admin,classes;
+	JButton students, addAttendance, manageStudent, admin,classes;
 	Homepage()
 	{
 		//-------------------Welcome---------------------------------
@@ -25,12 +27,13 @@ public class Homepage extends JFrame{
 		
 		
 		//----------------------STUDENTS----------------------------
-		 students = new JButton("STUDENTS");
+		 students = new JButton("STUDENTS ATTENDANCE RECORD");
 		students.setBounds(150, 70, 800, 50);
 		students.setFont(fontstyle);
 		students.setBackground(Color.decode("#DEE4E7"));
 		students.setForeground(Color.decode("#37474F"));
 		add(students);
+		students.addActionListener(this);
 		//----------------------------------------------------------
 		
 		//----------------------ADD ATTENDANCE----------------------------
@@ -40,15 +43,17 @@ public class Homepage extends JFrame{
 		addAttendance.setBackground(Color.decode("#DEE4E7"));
 		addAttendance.setForeground(Color.decode("#37474F"));
 		add(addAttendance);
+		addAttendance.addActionListener(this);
 		//---------------------------
 		
 		//----------------------Edit ATTENDANCE----------------------------
-		editAttendance = new JButton("Edit Attendance");
-		editAttendance.setBounds(560, 145, 390, 50);
-		editAttendance.setFont(fontstyle);
-		editAttendance.setBackground(Color.decode("#DEE4E7"));
-		editAttendance.setForeground(Color.decode("#37474F"));
-		add(editAttendance);
+		manageStudent = new JButton("Manage Student");
+		manageStudent.setBounds(560, 145, 390, 50);
+		manageStudent.setFont(fontstyle);
+		manageStudent.setBackground(Color.decode("#DEE4E7"));
+		manageStudent.setForeground(Color.decode("#37474F"));
+		add(manageStudent);
+		manageStudent.addActionListener(this);
 		//---------------------------
 		
 		//----------------------Admin----------------------------
@@ -58,6 +63,7 @@ public class Homepage extends JFrame{
 		admin.setBackground(Color.decode("#DEE4E7"));
 		admin.setForeground(Color.decode("#37474F"));
 		add(admin);
+		admin.addActionListener(this);
 		//---------------------------
 		
 		//----------------------class----------------------------
@@ -67,6 +73,7 @@ public class Homepage extends JFrame{
 				classes.setBackground(Color.decode("#DEE4E7"));
 				classes.setForeground(Color.decode("#37474F"));
 				add(classes);
+				classes.addActionListener(this);
 		//---------------------------
 
 				setSize(1000,600);
@@ -78,8 +85,26 @@ public class Homepage extends JFrame{
 		
 		
 	}
-//	public static void main(String[] args) {
-//		new Homepage();
-//	}
+	public static void main(String[] args) {
+		new Homepage();
+	}
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		// TODO Auto-generated method stub
+		if(e.getSource()==students) {
+			new Student();
+			setVisible(false);
+		}
+		else if(e.getSource()==addAttendance) {
+			new AddAttendance();
+			setVisible(false);
+		}else if(e.getSource()==classes) {
+			new Classes();
+			setVisible(false);
+		}else if(e.getSource()==manageStudent) {
+			new ManageStudent();
+			setVisible(false);
+		}
+	}
 	
 }
